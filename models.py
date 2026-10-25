@@ -17,6 +17,10 @@ class Customer:
         self.name = name
         self.past_purchases: list["Transaction"] = []
 
+    def is_verified(self) -> bool:
+        """A customer is verified if they have at least one past purchase."""
+        return len(self.past_purchases) > 0
+
 
 class FoodItem:
     def __init__(self, name: str, price: Decimal, category: str, popularity_rating: float):
@@ -30,7 +34,19 @@ class Menu:
     def __init__(self):
         self.items: list[FoodItem] = []
 
+    def filter_by_category(self, category: str) -> list[FoodItem]:
+        """Return the items whose category matches exactly."""
+        return [item for item in self.items if item.category == category]
+
+    def sort_by_popularity(self) -> list[FoodItem]:
+        """Return a new list of items, most popular first."""
+        return sorted(self.items, key=lambda item: item.popularity_rating, reverse=True)
+
 
 class Transaction:
     def __init__(self, items: list[FoodItem] | None = None):
         self.items: list[FoodItem] = items if items is not None else []
+
+    def calculate_total(self) -> Decimal:
+        """Return the sum of the item prices (0 when there are no items)."""
+        return sum((item.price for item in self.items), Decimal("0"))
