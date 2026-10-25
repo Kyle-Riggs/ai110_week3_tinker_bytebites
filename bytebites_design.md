@@ -5,6 +5,7 @@ classDiagram
     class Customer {
         +name: str
         +past_purchases: list~Transaction~
+        +is_verified(): bool
     }
 
     class FoodItem {
@@ -17,6 +18,7 @@ classDiagram
     class Menu {
         +items: list~FoodItem~
         +filter_by_category(category: str): list~FoodItem~
+        +sort_by_popularity(): list~FoodItem~
     }
 
     class Transaction {
