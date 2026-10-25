@@ -9,6 +9,6 @@ Do not add authentication logic, a database layer, or any features not described
 in the spec.
 
 ## Behavioral Instructions
-<!-- Write a short set of instructions guiding how your AI assistant should behave 
-when helping with this project — for example, which classes to stay within, 
-what complexity to avoid, or any preferences for how suggestions are structured. -->
+If you need clarification for something before acting, ask me before doing.
+Keep the project simple overall, the complexity should not grow much given the nature of the problem.
+Anything you generate should adhere to the spec.md.
